@@ -1,6 +1,8 @@
 pipeline {
     agent any
-    tool name: 'terraform', type: 'terraform'
+    tools {
+        terraform "terraform"
+    }
     stages {
         stage('Checkout') {
             steps {
@@ -25,14 +27,6 @@ pipeline {
                     sh 'terraform apply --auto-approve main.tfplan'
                 }
             }
-        }
-    post {
-        success {
-            echo 'Deployment successful!'
-        }
-        failure {
-            echo 'Deployment failed!'
-        }
+        }    
     }
-}
 }
