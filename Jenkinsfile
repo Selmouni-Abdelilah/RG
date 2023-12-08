@@ -23,8 +23,8 @@ pipeline {
                 script {
                     sh 'cd terraform'
                     sh 'terraform init -upgrade'
-                    sh 'terraform plan -out main.tfplan'
-                    sh 'terraform apply --auto-approve main.tfplan'
+                    sh 'terraform plan'
+                    sh 'terraform apply --auto-approve'
                 }
             }
         }    
