@@ -21,10 +21,10 @@ pipeline {
         stage('Terraform ') {
             steps {
                 script {
-                    sh 'cd terraform'
+                    dir('terraform') {
                     sh 'terraform init -upgrade'
                     sh 'terraform apply --auto-approve'
-                }
+                {
             }
         }    
     }
